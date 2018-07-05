@@ -1,0 +1,32 @@
+# Criação de ambiente virtual python3
+virtualenv --python=`which python3` env
+
+# Ativação do ambiente virtual
+source env/bin/activate
+
+# Instalação do Django
+pip install django
+
+# Criação do projeto
+django-admin startproject name_project .
+
+# Criação de app
+python manage.py startapp name_app
+** adicionar a app em name_project/settings.py/INSTALLED_APPS
+
+# Criação do banco de dados
+python manage.py migrate
+
+# Executando a aplicação
+python manage.py runserver
+
+# Criação de super usuário
+python manage.py createsuperuser
+
+# Verifica alterações nos models
+python manage.py makemigrations
+
+# Aplica as alterações identificadas
+python manage.py migrate
+
+# Após aplicar as alterações, registraro novo model em admin.py
