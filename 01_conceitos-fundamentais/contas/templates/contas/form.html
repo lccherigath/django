@@ -15,6 +15,9 @@
 
         {{ form.as_p }}
 
+        {% if transacao %}
+        <a href="{% url 'url_delete' transacao.id %}">Excluir</a>
+        {% endif %}
         <button type="submit">Salvar</button>
     </form>
 

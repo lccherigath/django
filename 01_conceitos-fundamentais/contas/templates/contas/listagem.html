@@ -11,9 +11,13 @@
     <h1>Listagem</h1>
     <a href="{% url 'url_nova_transacao' %}">Add+</a>
 
-    <ul>        
+    <ul>
     {% for transacao in transacoes %}
-        <li>{{ transacao.descricao }} | {{ transacao.data }} | {{ transacao.valor }} | {{ transacao.categoria }}</li>
+        <li>
+            <a href="{% url 'url_update' transacao.id %}">Alterar</a>
+            <a href="{% url 'url_delete' transacao.id %}">Excluir</a>
+            {{ transacao.descricao }} | {{ transacao.data }} | {{ transacao.valor }} | {{ transacao.categoria }}
+        </li>
     {% endfor %}
     </ul>
 
