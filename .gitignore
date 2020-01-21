@@ -1,4 +1,5 @@
 **/*.pyc
 **/.cache/
 **/*env/*
+**/__pycache__
 pycharm/*

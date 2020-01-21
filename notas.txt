@@ -24,9 +24,9 @@ python manage.py runserver
 python manage.py createsuperuser
 
 # Verifica alterações nos models
-python manage.py makemigrations
+python manage.py makemigrations <app>
 
 # Aplica as alterações identificadas
-python manage.py migrate
+python manage.py migrate <app>
 
-# Após aplicar as alterações, registraro novo model em admin.py
+# Após aplicar as alterações, registrar o novo model em admin.py
