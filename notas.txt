@@ -30,3 +30,8 @@ python manage.py makemigrations <app>
 python manage.py migrate <app>
 
 # Após aplicar as alterações, registrar o novo model em admin.py
+
+
+
+
+python manage.py shell
