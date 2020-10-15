@@ -11,22 +11,23 @@ from rest_framework import viewsets
 from app.models import Todo
 from app.serializers import TodoSerializer
 
-
+###### CRUD com viewsets
 class TodoViewSet(viewsets.ModelViewSet):
   queryset = Todo.objects.all()
   serializer_class = TodoSerializer
 
 
+###### CRUD com generics
 # class TodoListAndCreate(generics.ListCreateAPIView):
 #   queryset = Todo.objects.all()
 #   serializer_class = TodoSerializer
-
 
 # class TodoDetailChangeAndDelete(generics.RetrieveUpdateDestroyAPIView):
 #   queryset = Todo.objects.all()
 #   serializer_class = TodoSerializer
 
 
+###### CRUD com APIView
 # class TodoListAndCreate(APIView):
 #   def get(self, request):
 #     todo = Todo.objects.all()
@@ -68,7 +69,7 @@ class TodoViewSet(viewsets.ModelViewSet):
 #     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-
+###### CRUD com api_view decorator
 # @api_view(['GET', 'POST'])
 # def todo_list(request):
 #   if request.method == 'GET':
