@@ -1,1 +1,1 @@
-# django
+# Tutoriais/cursos de Django

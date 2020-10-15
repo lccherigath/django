@@ -1,0 +1,29 @@
+python -m venv venv
+pip install djangorestframework
+
+django-admin startproject api_todo
+# django-admin startapp app
+python manage.py startapp app
+
+# criar models e...
+python manage.py makemigrations
+python manage.py migrate
+
+pip install ipython
+python manage.py shell
+
+  from app.models import Todo
+  todo = Todo(name='Acordar cedo.')
+  todo.save()
+  todo.__dict__
+
+# criar serializer.py
+python manage.py shell
+  from app.models import Todo
+  from app.serializers import TodoSerializer
+  todo = Todo.objects.first()
+  serializer = TodoSerializer(todo)
+  serializer.data
+
+python manage.py runserver
+
