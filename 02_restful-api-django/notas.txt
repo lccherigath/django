@@ -1,0 +1,120 @@
+python -m venv venv
+pip install django
+django-admin startproject pontos_turisticos .
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py createsuperuser
+python manage.py runserver
+
+pip install djangorestframework
+# registrar 'rest_framework' em pontos_turisticos/settings.py/INSTALLED_APPS
+
+python manage.py startapp core
+# registrar 'core' em pontos_turisticos/settings.py/INSTALLED_APPS
+# criar models
+# registrar o model em admin.py
+python manage.py makemigrations
+python manage.py migrate
+
+# criar core/api/__init__.py
+# criar core/api/viewsets.py
+# criar core/api/serializers.py
+
+
+
+python manage.py startapp atracoes
+# registrar 'atracoes' em pontos_turisticos/settings.py/INSTALLED_APPS
+# criar models
+# registrar o model em admin.py
+python manage.py makemigrations
+python manage.py migrate
+
+# criar atracoes/api/__init__.py
+# criar atracoes/api/viewsets.py
+# criar atracoes/api/serializers.py
+
+# criar lista de 'atracoes' em PontoTuristico (core/models.py)
+
+
+
+python manage.py startapp comentarios
+# registrar 'comentarios' em pontos_turisticos/settings.py/INSTALLED_APPS
+# criar models
+# registrar o model em admin.py
+python manage.py makemigrations
+python manage.py migrate
+
+# criar comentarios/api/__init__.py
+# criar comentarios/api/viewsets.py
+# criar comentarios/api/serializers.py
+
+# criar lista de 'comentarios' em PontoTuristico (core/models.py)
+
+
+
+python manage.py startapp avaliacoes
+# registrar 'avaliacoes' em pontos_turisticos/settings.py/INSTALLED_APPS
+# criar models
+# registrar o model em admin.py
+python manage.py makemigrations
+python manage.py migrate
+
+# criar avaliacoes/api/__init__.py
+# criar avaliacoes/api/viewsets.py
+# criar avaliacoes/api/serializers.py
+
+# criar lista de 'avaliacoes' em PontoTuristico (core/models.py)
+
+
+
+python manage.py startapp enderecos
+# registrar 'enderecos' em pontos_turisticos/settings.py/INSTALLED_APPS
+# criar models
+# registrar o model em admin.py
+python manage.py makemigrations
+python manage.py migrate
+
+# criar enderecos/api/__init__.py
+# criar enderecos/api/viewsets.py
+# criar enderecos/api/serializers.py
+
+# criar campo 'endereco' em PontoTuristico (core/models.py)
+
+
+
+
+
+
+
+pip install wheel
+pip install python-decouple
+pip install dj-database-url
+pip install dj-static
+
+.env
+    SECRET_KEY=gvr&-496a@3_m4(syn$mqr*3t_4bundzw^fm6q7k4aydnu%$f6
+    DEBUG=False
+
+settings.py
+    from decouple import config
+    SECRET_KEY = config('SECRET_KEY')
+    DEBUG = config('DEBUG', default=False, cast=bool)
+
+    from dj_database_url import parse as dburl
+    default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+    DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+wsgi.py
+    from dj_static import Cling
+    application = Cling(get_wsgi_application())
+
+pip freeze > requirements-dev.txt
+
+requirements.txt
+    -r requirements-dev.txt
+    gunicorn
+    psycopg2
