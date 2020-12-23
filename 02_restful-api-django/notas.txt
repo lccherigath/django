@@ -85,6 +85,17 @@ python manage.py migrate
 
 
 
+pip install django-filter
+
+## Then add 'django_filters' to your INSTALLED_APPS.
+
+INSTALLED_APPS = [
+    ...
+    'django_filters',
+]
+
+
+
 
 
 
