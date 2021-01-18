@@ -2,6 +2,8 @@ python -m venv venv
 pip install django
 django-admin startproject pontos_turisticos .
 
+python manage.py inspectdb > models.py
+
 python manage.py makemigrations
 python manage.py migrate
 
@@ -98,8 +100,8 @@ INSTALLED_APPS = [
 
 
 
-
 pip install wheel
+pip install psycopg2
 pip install python-decouple
 pip install dj-database-url
 pip install dj-static
