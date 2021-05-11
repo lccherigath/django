@@ -9,5 +9,5 @@ class AtracaoViewSet(viewsets.ModelViewSet):
     '''
     queryset = Atracao.objects.all()
     serializer_class = AtracaoSerializer
-    # filter_fields = ('nome', 'descricao',)    # Versões anteriores do Django (usar filterset_fields)
-    filterset_fields = ['nome', 'descricao']
+    # filter_fields = ('nome', 'descricao',)    # Versões anteriores do Django
+    filterset_fields = ['nome', 'descricao']    # Django 3+

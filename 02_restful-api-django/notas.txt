@@ -2,7 +2,7 @@ python -m venv venv
 pip install django
 django-admin startproject pontos_turisticos .
 
-python manage.py inspectdb > models.py
+python manage.py inspectdb > inspectdb.py
 
 python manage.py makemigrations
 python manage.py migrate
