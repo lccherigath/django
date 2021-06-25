@@ -100,6 +100,8 @@ INSTALLED_APPS = [
 
 
 
+
+
 pip install wheel
 pip install psycopg2
 pip install python-decouple
@@ -131,3 +133,60 @@ requirements.txt
     -r requirements-dev.txt
     gunicorn
     psycopg2
+
+
+
+
+
+
+# Servindo arquivos estáticos no Django em produção com Whitenoise
+
+Com o virtualenv ativado, instalar o WhiteNoise:
+    pip install whitenoise
+
+Adicionar em settings.py:
+    MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+        
+        # Certifique-se que o WhiteNoise seja adicionado acima de todos os middlewares do Django, exceto o de security. 
+        # ...
+    ]
+
+    # Para ativar arquivos de cache e com campactação:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+Por fim:
+    python manage.py collectstatic
+
+
+
+
+
+
+# Dados fake
+
+pip install django-autofixture django-utils-six
+# registrar 'autofixture' em settings.py/INSTALLED_APPS
+python manage.py loadtestdata app_name.ModelName:2
+
+
+
+
+
+# Dynaconf
+
+pip install dynaconf
+
+dynaconf list
+export DJANGO_SETTINGS_MODULE=yourproject.settings
+dynaconf init --help
+dynaconf init --django django_project/settings.py
+
+dynaconf list
+dynaconf list -o settings.toml
+
+
+
+# Criar superuser no Dockerfile
+RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@email.com', 'p455w0rd')" | python manage.py shell
