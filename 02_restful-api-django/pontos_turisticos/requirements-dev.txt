@@ -9,5 +9,5 @@ Pillow==8.0.1
 python-decouple==3.3
 pytz==2020.1
 six==1.15.0
-sqlparse==0.4.1
+sqlparse==0.4.2
 static3==0.7.0
